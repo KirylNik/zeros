@@ -19,10 +19,11 @@ module.exports = function getZerosCount(number) {
     result += temp;
     temp = Math.floor(number / 1953125);
     result += temp;
-    temp = Math.round(number / 9765625);
+    temp = Math.floor(number / 9765625);
     result += temp;
-    if (1100000 < result && result < 7500000) {
-        result = result - 1;
+    if (number >= 48828125) {
+        temp = Math.floor(number / 48828125);
+        result += temp;
     }
-    return(Math.round (result));
+    return(result);
 }
